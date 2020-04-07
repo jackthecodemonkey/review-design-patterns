@@ -1,4 +1,5 @@
 ﻿using DesignPattern.OOP;
+using DesignPattern.OOP.Decorator;
 using DesignPattern.OOP.Factory_Pattern;
 using DesignPattern.OOP.ObserverPattern;
 using System;
@@ -9,26 +10,12 @@ namespace DesignPattern
     {
         static void Main(string[] args)
         {
-            EnemyShip enemyShip;
+            Pizza basicPizza = new TomatoSource(new Mozzarella(new PlainPizza()));
 
-            var tmp = false;
+            Console.WriteLine(basicPizza.getCost());
+            Console.WriteLine(basicPizza.getDescription());
 
-            if (tmp)
-            {
-                enemyShip = new UFOEnmeyShip();
-            } else
-            {
-                enemyShip = new RocketEnemyShip();
-            }
-
-            doSomeStuiff(enemyShip);
         }
 
-        public static void doSomeStuiff(EnemyShip ship)
-        {
-            ship.displayEnemyShip();
-            ship.enmeyShipShoots();
-            ship.followHeroShip();
-        }
     }
 }
